@@ -21,9 +21,7 @@ class ProjectsController extends Controller
 
     public function addForm()
     {
-        return view('projects.add', [
-            'types' => Type::all(),
-        ]);
+        return view('projects.add');
     }
     
     public function add()
@@ -33,16 +31,16 @@ class ProjectsController extends Controller
             'title' => 'required',
             'slug' => 'required|unique:projects|regex:/^[A-z\-]+$/',
             'url' => 'nullable|url',
+            'github' => 'nullable|url',
             'content' => 'required',
-            'type_id' => 'required',
         ]);
 
         $project = new Project();
         $project->title = $attributes['title'];
-        $project->slug = $attributes['slug'];
+        $project->slug = str_replace(" ", "-", strtolower($attributes['title']));
         $project->url = $attributes['url'];
+        $project->github = $attributes['github'];
         $project->content = $attributes['content'];
-        $project->type_id = $attributes['type_id'];
         $project->user_id = Auth::user()->id;
         $project->save();
 
@@ -54,7 +52,6 @@ class ProjectsController extends Controller
     {
         return view('projects.edit', [
             'project' => $project,
-            'types' => Type::all(),
         ]);
     }
 
@@ -63,21 +60,16 @@ class ProjectsController extends Controller
 
         $attributes = request()->validate([
             'title' => 'required',
-            'slug' => [
-                'required',
-                Rule::unique('projects')->ignore($project->id),
-                'regex:/^[A-z\-]+$/',
-            ],
             'url' => 'nullable|url',
+            'github' => 'nullable|url',
             'content' => 'required',
-            'type_id' => 'required',
         ]);
 
         $project->title = $attributes['title'];
-        $project->slug = $attributes['slug'];
+        $project->slug = str_replace(" ", "-", strtolower($attributes['title']));
         $project->url = $attributes['url'];
+        $project->github = $attributes['github'];
         $project->content = $attributes['content'];
-        $project->type_id = $attributes['type_id'];
         $project->save();
 
         return redirect('/console/projects/list')

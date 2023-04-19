@@ -16,18 +16,13 @@ class Project extends Model
      */
     protected $fillable = [
         'title',
-        'url',
-        'content',
         'slug',
+        'url',
+        'github',
+        'content',
         'image',
-        'type_id',
         'user_id',
     ];
-
-    public function type()
-    {
-        return $this->belongsTo(Type::class, 'type_id');
-    }
 
     public function user()
     {
