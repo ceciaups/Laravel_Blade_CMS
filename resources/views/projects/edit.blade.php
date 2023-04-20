@@ -49,6 +49,18 @@
                 <span class="w3-text-red">{{$errors->first('content')}}</span>
             @endif
         </div>
+        
+        <div class="w3-margin-bottom">
+            <label for="">Skill(s):</label>
+            @foreach ($skills as $skill)
+                <br>
+                <label>
+                    <input type="checkbox" name="skills" value="{{$skill->id}}"
+                        {{ $project->skills->pluck('id')->contains($skill->id) ? 'checked' : ''}}>
+                    {{$skill->name}}
+                </label>
+            @endforeach
+        </div>
 
         <button type="submit" class="w3-button w3-green">Edit Project</button>
 

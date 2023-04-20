@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use App\Models\Project;
+use App\Models\Skill;
 
 class ProjectsController extends Controller
 {
@@ -20,7 +21,9 @@ class ProjectsController extends Controller
 
     public function addForm()
     {
-        return view('projects.add');
+        return view('projects.add', [
+            'skills' => Skill::all(),
+        ]);
     }
     
     public function add()
@@ -31,6 +34,7 @@ class ProjectsController extends Controller
             'url' => 'nullable|url',
             'github' => 'nullable|url',
             'content' => 'required',
+            'skills' => 'nullable',
         ]);
 
         $project = new Project();
@@ -42,6 +46,8 @@ class ProjectsController extends Controller
         $project->user_id = Auth::user()->id;
         $project->save();
 
+        $project->skills()->attach($attributes['skills']);
+
         return redirect('/console/projects/list')
             ->with('message', 'Project has been added!');
     }
@@ -50,6 +56,7 @@ class ProjectsController extends Controller
     {
         return view('projects.edit', [
             'project' => $project,
+            'skills' => Skill::all(),
         ]);
     }
 

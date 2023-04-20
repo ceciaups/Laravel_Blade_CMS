@@ -50,6 +50,18 @@
             @endif
         </div>
 
+        <div class="w3-margin-bottom">
+            <label for="">Skill(s):</label>
+            @foreach ($skills as $skill)
+                <br>
+                <label>
+                    <input type="checkbox" name="skills" value="{{$skill->id}}"
+                        {{$skill->id == old('skill_id') ? 'checked' : ''}}>
+                    {{$skill->name}}
+                </label>
+            @endforeach
+        </div>
+
         <button type="submit" class="w3-button w3-green">Add Project</button>
 
     </form>
