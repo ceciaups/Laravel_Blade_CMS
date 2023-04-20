@@ -6,6 +6,8 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\EntriesController;
+use App\Http\Controllers\CareersController;
+use App\Http\Controllers\CareerTypesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,3 +67,17 @@ Route::post('/console/entries/add', [EntriesController::class, 'add'])->middlewa
 Route::get('/console/entries/edit/{entry:id}', [EntriesController::class, 'editForm'])->where('entry', '[0-9]+')->middleware('auth');
 Route::post('/console/entries/edit/{entry:id}', [EntriesController::class, 'edit'])->where('entry', '[0-9]+')->middleware('auth');
 Route::get('/console/entries/delete/{entry:id}', [EntriesController::class, 'delete'])->where('entry', '[0-9]+')->middleware('auth');
+
+Route::get('/console/careers/list', [CareersController::class, 'list'])->middleware('auth');
+Route::get('/console/careers/add', [CareersController::class, 'addForm'])->middleware('auth');
+Route::post('/console/careers/add', [CareersController::class, 'add'])->middleware('auth');
+Route::get('/console/careers/edit/{career:id}', [CareersController::class, 'editForm'])->where('career', '[0-9]+')->middleware('auth');
+Route::post('/console/careers/edit/{career:id}', [CareersController::class, 'edit'])->where('career', '[0-9]+')->middleware('auth');
+Route::get('/console/careers/delete/{career:id}', [CareersController::class, 'delete'])->where('career', '[0-9]+')->middleware('auth');
+
+Route::get('/console/career_types/list', [CareerTypesController::class, 'list'])->middleware('auth');
+Route::get('/console/career_types/add', [CareerTypesController::class, 'addForm'])->middleware('auth');
+Route::post('/console/career_types/add', [CareerTypesController::class, 'add'])->middleware('auth');
+Route::get('/console/career_types/edit/{career_type:id}', [CareerTypesController::class, 'editForm'])->where('career_type', '[0-9]+')->middleware('auth');
+Route::post('/console/career_types/edit/{career_type:id}', [CareerTypesController::class, 'edit'])->where('career_type', '[0-9]+')->middleware('auth');
+Route::get('/console/career_types/delete/{career_type:id}', [CareerTypesController::class, 'delete'])->where('career_type', '[0-9]+')->middleware('auth');

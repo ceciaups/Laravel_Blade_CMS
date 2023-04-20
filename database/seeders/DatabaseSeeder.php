@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Type;
 use App\Models\Project;
 use App\Models\Entry;
+use App\Models\Career;
+use App\Models\CareerType;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,11 +24,19 @@ class DatabaseSeeder extends Seeder
         Type::truncate();
         Project::truncate();
         Entry::truncate();
+        CareerType::truncate();
+        Career::truncate();
         
         User::factory()->count(2)->create();
         Type::factory()->count(3)->create();
         Project::factory()->count(4)->create();
         Entry::factory()->count(4)->create();
+        CareerType::factory()->count(2)->create();
+        Career::factory()->count(4)->create();
+        // Career::factory()->count(4)->create()->each(function($career) {
+        //     $skills = Skill::all()->random(rand(1,2))->pluck('id');
+        //     $career->skills()->attach($skills);
+        // });
             
     }
 }
