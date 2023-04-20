@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Entry;
 use App\Models\Career;
 use App\Models\CareerType;
+use App\Models\Skill;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         Entry::truncate();
         CareerType::truncate();
         Career::truncate();
+        Skill::truncate();
         
         User::factory()->count(2)->create();
         Type::factory()->count(3)->create();
@@ -37,6 +39,7 @@ class DatabaseSeeder extends Seeder
         //     $skills = Skill::all()->random(rand(1,2))->pluck('id');
         //     $career->skills()->attach($skills);
         // });
+        Skill::factory()->count(4)->create();
             
     }
 }

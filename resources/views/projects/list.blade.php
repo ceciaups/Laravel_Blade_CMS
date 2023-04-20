@@ -25,7 +25,8 @@
                 <td>
                     <a href="/project/{{$project->slug}}">
                         {{$project->title}}
-                    </a></td>
+                    </a>
+                </td>
                 <td>{{$project->created_at->format('M j, Y')}}</td>
                 <td><a href="/console/projects/image/{{$project->id}}">Image</a></td>
                 <td><a href="/console/projects/edit/{{$project->id}}">Edit</a></td>
