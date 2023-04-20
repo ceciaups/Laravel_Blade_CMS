@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\CareerType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +24,7 @@ class CareerFactory extends Factory
             'start_date' => $this->faker->dateTimeThisMonth,
             'end_date' => $this->faker->dateTimeThisMonth,
             'career_type_id' => CareerType::all()->random(),
-            'photo' => $this->faker->image,
+            'user_id' => User::all()->random(),
         ];
     }
 }

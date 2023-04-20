@@ -75,6 +75,8 @@ Route::post('/console/careers/add', [CareersController::class, 'add'])->middlewa
 Route::get('/console/careers/edit/{career:id}', [CareersController::class, 'editForm'])->where('career', '[0-9]+')->middleware('auth');
 Route::post('/console/careers/edit/{career:id}', [CareersController::class, 'edit'])->where('career', '[0-9]+')->middleware('auth');
 Route::get('/console/careers/delete/{career:id}', [CareersController::class, 'delete'])->where('career', '[0-9]+')->middleware('auth');
+Route::get('/console/careers/image/{career:id}', [CareersController::class, 'imageForm'])->where('career', '[0-9]+')->middleware('auth');
+Route::post('/console/careers/image/{career:id}', [CareersController::class, 'image'])->where('career', '[0-9]+')->middleware('auth');
 
 Route::get('/console/career_types/list', [CareerTypesController::class, 'list'])->middleware('auth');
 Route::get('/console/career_types/add', [CareerTypesController::class, 'addForm'])->middleware('auth');

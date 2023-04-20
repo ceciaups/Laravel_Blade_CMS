@@ -34,12 +34,11 @@ class DatabaseSeeder extends Seeder
         Project::factory()->count(4)->create();
         Entry::factory()->count(4)->create();
         CareerType::factory()->count(2)->create();
-        Career::factory()->count(4)->create();
-        // Career::factory()->count(4)->create()->each(function($career) {
-        //     $skills = Skill::all()->random(rand(1,2))->pluck('id');
-        //     $career->skills()->attach($skills);
-        // });
         Skill::factory()->count(4)->create();
+        Career::factory()->count(4)->create()->each(function($career) {
+            $skills = Skill::all()->random(rand(1,2))->pluck('id');
+            $career->skills()->attach($skills);
+        });
             
     }
 }

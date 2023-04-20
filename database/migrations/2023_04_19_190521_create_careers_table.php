@@ -18,7 +18,8 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->foreignId('career_type_id');
-            $table->string('photo')->nullable();
+            $table->foreignId('user_id');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

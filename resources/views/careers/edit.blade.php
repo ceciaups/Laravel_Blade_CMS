@@ -67,6 +67,18 @@
             @endif
         </div>
 
+        <div class="w3-margin-bottom">
+            <label for="">Skills:</label>
+            @foreach ($skills as $skill)
+                <br>
+                <label>
+                    <input type="checkbox" name="skills[]" value="{{$skill->id}}"
+                    {{in_array($skill->id, $career->skills()->pluck('skills.id')->toArray()) ? 'checked' : ''}}>
+                    {{$skill->name}}
+                </label>
+            @endforeach
+        </div>
+
         <button type="submit" class="w3-button w3-green">Edit Career</button>
 
     </form>
