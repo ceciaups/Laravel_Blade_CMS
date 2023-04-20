@@ -28,7 +28,6 @@ class ProjectsController extends Controller
 
         $attributes = request()->validate([
             'title' => 'required',
-            'slug' => 'required|unique:projects|regex:/^[A-z\-]+$/',
             'url' => 'nullable|url',
             'github' => 'nullable|url',
             'content' => 'required',
