@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Models\User;
 use App\Models\Career;
 use App\Models\Project;
+use App\Models\Skill;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +72,7 @@ Route::get('/projects', function(){
 Route::get('/projects/profile/{project?}', function(Project $project){
 
     $project['user'] = User::where('id', $project['user_id'])->first();
-    $projects[$key]['skills'] = $project->skills()->get();
+    $projects['skills'] = $project->skills()->get();
 
     if($project['image'])
     {
@@ -82,3 +83,20 @@ Route::get('/projects/profile/{project?}', function(Project $project){
 
 });
 
+Route::get('/skills', function(){
+
+    $skills = Skill::orderBy('created_at')->get();
+
+    foreach($skills as $key => $skill)
+    {
+        $skills[$key]['user'] = User::where('id', $skill['user_id'])->first();
+
+        if($skill['logo'])
+        {
+            $skills[$key]['logo'] = env('APP_URL').'storage/'.$skill['logo'];
+        }
+    }
+
+    return $skills;
+
+});

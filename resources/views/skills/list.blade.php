@@ -19,7 +19,7 @@
             <tr>
                 <td>
                     @if ($skill->logo)
-                        <img src="{{asset('storage/'.$skill->logo)}}" width="200">
+                        <img src="{{asset('storage/'.$skill->logo)}}" width="50">
                     @endif
                 </td>
                 <td>{{$skill->name}}</td>

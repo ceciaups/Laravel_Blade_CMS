@@ -16,13 +16,13 @@ class Skill extends Model
      */
     protected $fillable = [
         'name',
-        'image',
+        'logo',
         'user_id',
     ];
 
     public function user()
     {
-        return $this->belongsTo(USer::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function projects()
