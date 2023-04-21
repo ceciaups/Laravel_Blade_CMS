@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Type;
 use App\Models\User;
+use App\Models\Career;
 use App\Models\Project;
 
 /*
@@ -26,6 +27,25 @@ Route::get('/types', function(){
 
     $types = Type::orderBy('title')->get();
     return $types;
+
+});
+
+Route::get('/careers', function(){
+
+    $careers = Career::orderBy('career_type_id')->get();
+
+    foreach($careers as $key => $career)
+    {
+        $careers[$key]['skills'] = $career->skills()->get();
+        $careers[$key]['career_type'] = $career->careerType()->get();
+
+        if($career['image'])
+        {
+            $careers[$key]['image'] = env('APP_URL').'storage/'.$career['image'];
+        }
+    }
+
+    return $careers;
 
 });
 
