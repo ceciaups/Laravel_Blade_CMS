@@ -47,9 +47,9 @@ class CareersController extends Controller
         $career->user_id = Auth::user()->id;
         $career->save();
 
-        $career->skills()->attach($attributes['skills']);
-
-        // dd($_POST);
+        if (array_key_exists('skills', $attributes)) {
+            $career->skills()->attach($attributes['skills']);    
+        }
 
         return redirect('/console/careers/list')
             ->with('message', 'Career has been added!');
