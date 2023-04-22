@@ -55,7 +55,7 @@
             @foreach ($skills as $skill)
                 <br>
                 <label>
-                    <input type="checkbox" name="skills" value="{{$skill->id}}"
+                    <input type="checkbox" name="skills[]" value="{{$skill->id}}"
                         {{ $project->skills->pluck('id')->contains($skill->id) ? 'checked' : ''}}>
                     {{$skill->name}}
                 </label>

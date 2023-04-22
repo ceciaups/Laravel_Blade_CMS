@@ -68,6 +68,7 @@ class ProjectsController extends Controller
             'url' => 'nullable|url',
             'github' => 'nullable|url',
             'content' => 'required',
+            'skills' => 'nullable',
         ]);
 
         $project->title = $attributes['title'];
@@ -76,6 +77,9 @@ class ProjectsController extends Controller
         $project->github = $attributes['github'];
         $project->content = $attributes['content'];
         $project->save();
+
+        $project->skills()->detach();
+        $project->skills()->attach($attributes['skills']);
 
         return redirect('/console/projects/list')
             ->with('message', 'Project has been edited!');
@@ -89,6 +93,7 @@ class ProjectsController extends Controller
             Storage::delete($project->image);
         }
         
+        $project->skills()->detach();
         $project->delete();
         
         return redirect('/console/projects/list')

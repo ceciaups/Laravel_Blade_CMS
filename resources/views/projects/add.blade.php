@@ -55,7 +55,7 @@
             @foreach ($skills as $skill)
                 <br>
                 <label>
-                    <input type="checkbox" name="skills" value="{{$skill->id}}"
+                    <input type="checkbox" name="skills[]" value="{{$skill->id}}"
                         {{$skill->id == old('skill_id') ? 'checked' : ''}}>
                     {{$skill->name}}
                 </label>
