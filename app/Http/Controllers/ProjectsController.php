@@ -15,7 +15,7 @@ class ProjectsController extends Controller
     public function list()
     {
         return view('projects.list', [
-            'projects' => Project::all()
+            'projects' => Project::all()->where('user_id', Auth::user()->id),
         ]);
     }
 

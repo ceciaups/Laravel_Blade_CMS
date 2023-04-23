@@ -14,7 +14,7 @@ class CareersController extends Controller
     public function list()
     {
         return view('careers.list', [
-            'careers' => Career::all(),
+            'careers' => Career::all()->where('user_id', Auth::user()->id)
         ]);
     }
 
