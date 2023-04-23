@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Type;
 use App\Models\User;
 use App\Models\Career;
 use App\Models\Project;
@@ -22,13 +21,6 @@ use App\Models\Skill;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::get('/types', function(){
-
-    $types = Type::orderBy('title')->get();
-    return $types;
-
 });
 
 Route::get('/careers', function(){
