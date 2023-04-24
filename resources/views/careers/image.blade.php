@@ -4,6 +4,8 @@
 
 <section class="w3-padding">
 
+    <a href="/console/careers/list" class="button" id="return"><i class="fa-solid fa-rotate-left"></i>Back to Career List</a>
+
     <h2>Career Image</h2>
 
     <div class="w3-margin-bottom">
@@ -29,8 +31,6 @@
         <button type="submit" class="w3-button w3-green">Add Image</button>
 
     </form>
-
-    <a href="/console/careers/list">Back to Career List</a>
 
 </section>
 

@@ -4,6 +4,8 @@
 
 <section class="w3-padding">
 
+    <a href="/console/projects/list" class="button" id="return"><i class="fa-solid fa-rotate-left"></i>Back to Project List</a>
+
     <h2>Project Image</h2>
 
     <div class="w3-margin-bottom">
@@ -29,8 +31,6 @@
         <button type="submit" class="w3-button w3-green">Add Image</button>
 
     </form>
-
-    <a href="/console/projects/list">Back to Project List</a>
 
 </section>
 

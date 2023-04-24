@@ -4,6 +4,8 @@
 
 <section class="w3-padding">
 
+    <a href="/console/skills/list" class="button" id="return"><i class="fa-solid fa-rotate-left"></i>Back to Skill List</a>
+
     <h2>Skill Logo</h2>
 
     <div class="w3-margin-bottom">
@@ -29,8 +31,6 @@
         <button type="submit" class="w3-button w3-green">Add Logo</button>
 
     </form>
-
-    <a href="/console/skills/list">Back to Skill List</a>
 
 </section>
 

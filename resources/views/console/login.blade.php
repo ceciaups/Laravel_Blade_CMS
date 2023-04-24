@@ -8,7 +8,7 @@
 
         @csrf
 
-        <table id="table-login">
+        <table id="table-login" class="table-form">
             <tr>
                 <td><label for="email">Email Address:</label></td>
                 <td><input type="email" name="email" id="email" value="{{old('email')}}" required></td>
