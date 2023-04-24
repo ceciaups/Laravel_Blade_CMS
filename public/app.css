@@ -119,7 +119,8 @@ nav li {
 }
 
 #main-dashboard {
-    padding: var(--size-m);
+    position: relative;
+    margin: 1em;
     width: 100%;
 }
 
