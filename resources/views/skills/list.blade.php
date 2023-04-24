@@ -6,7 +6,7 @@
 
     <h2>Manage Skills</h2>
 
-    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
+    <table class="table-list">
         <tr class="w3-red">
             <th></th>
             <th>Name</th>
@@ -24,14 +24,14 @@
                 </td>
                 <td>{{$skill->name}}</td>
                 <td>{{$skill->created_at->format('M j, Y')}}</td>
-                <td><a href="/console/skills/logo/{{$skill->id}}">Logo</a></td>
-                <td><a href="/console/skills/edit/{{$skill->id}}">Edit</a></td>
-                <td><a href="/console/skills/delete/{{$skill->id}}">Delete</a></td>
+                <td><a href="/console/skills/logo/{{$skill->id}}"><i class="fa-solid fa-image"></i>Logo</a></td>
+                <td><a href="/console/skills/edit/{{$skill->id}}"><i class="fa-solid fa-pen"></i>Edit</a></td>
+                <td><a href="/console/skills/delete/{{$skill->id}}"><i class="fa-solid fa-trash"></i>Delete</a></td>
             </tr>
         @endforeach
     </table>
 
-    <a href="/console/skills/add" class="w3-button w3-green">New Skill</a>
+    <a href="/console/skills/add" class="button"><i class="fa-solid fa-circle-plus"></i>New Skill</a>
 
 </section>
 

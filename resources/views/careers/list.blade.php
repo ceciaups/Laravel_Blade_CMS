@@ -6,7 +6,7 @@
 
     <h2>Manage Careers</h2>
 
-    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
+    <table class="table-list">
         <tr class="w3-red">
             <th></th>
             <th>Career</th>
@@ -46,14 +46,14 @@
                         }
                     ?>
                 </td>
-                <td><a href="/console/careers/image/{{$career->id}}">Image</a></td>
-                <td><a href="/console/careers/edit/{{$career->id}}">Edit</a></td>
-                <td><a href="/console/careers/delete/{{$career->id}}">Delete</a></td>
+                <td><a href="/console/careers/image/{{$career->id}}"><i class="fa-solid fa-image"></i>Image</a></td>
+                <td><a href="/console/careers/edit/{{$career->id}}"><i class="fa-solid fa-pen"></i>Edit</a></td>
+                <td><a href="/console/careers/delete/{{$career->id}}"><i class="fa-solid fa-trash"></i>Delete</a></td>
             </tr>
         @endforeach
     </table>
 
-    <a href="/console/careers/add" class="w3-button w3-green">New Career</a>
+    <a href="/console/careers/add" class="button"><i class="fa-solid fa-circle-plus"></i>New Career</a>
 
 </section>
 

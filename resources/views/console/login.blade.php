@@ -2,33 +2,32 @@
 
 @section ('content')
 
-<section class="w3-padding">
+<section>
 
-    <form method="post" action="/console/login" novalidate>
+    <form id="login" method="post" action="/console/login" novalidate>
 
         @csrf
 
-        <div class="w3-margin-bottom">
-            <label for="email">Email Address:</label>
-            <input type="email" name="email" id="email" value="{{old('email')}}" required>
-            
+        <table id="table-login">
+            <tr>
+                <td><label for="email">Email Address:</label></td>
+                <td><input type="email" name="email" id="email" value="{{old('email')}}" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" name="password" id="password" required></td>
+            </tr>
+        </table>
+        
+        <div class="error">
             @if ($errors->first('email'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('email')}}</span>
+                {{$errors->first('email')}}
+            @elseif ($errors->first('password'))
+                {{$errors->first('password')}}
             @endif
         </div>
 
-        <div class="w3-margin-bottom">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required>
-
-            @if ($errors->first('password'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('password')}}</span>
-            @endif
-        </div>
-
-        <button type="submit">Log In</button>
+        <button type="submit"><i class="fa-solid fa-right-to-bracket"></i>Log In</button>
 
     </form>
 
