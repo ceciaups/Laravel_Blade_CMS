@@ -53,6 +53,7 @@ a:active {
   --white-400: #ccdbfd;
   --blue-100: #4361ee;
   --blue-200: #3f37c9;
+  --red: #ef476f;
   --gray-100: #979dac;
   --gray-200: #5c677d;
   --gray-300: #33415c;
@@ -71,10 +72,10 @@ a:active {
   justify-items: center;
   align-items: center;
 }
-
-#table-login {
-  padding: 0.5em;
+#login > * {
+  margin: 0.5em;
 }
+
 #table-login td {
   border: 2px solid transparent;
 }
@@ -158,4 +159,9 @@ button {
 #return {
   position: absolute;
   right: 0;
+}
+
+#error {
+  margin: 0;
+  color: var(--red);
 }

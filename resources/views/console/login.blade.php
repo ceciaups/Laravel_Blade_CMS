@@ -19,7 +19,7 @@
             </tr>
         </table>
         
-        <div class="error">
+        <div id="error">
             @if ($errors->first('email'))
                 {{$errors->first('email')}}
             @elseif ($errors->first('password'))
